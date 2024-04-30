@@ -3,20 +3,28 @@ Creare un oggeto dello stesso tipo inserito nell'HashSet e popolarlo
 Scorrere il set, per ogni elemento verificare se è uguale all'oggetto creato ed eliminarlo
 Svuotare l'hashset, verificarlo e stampare il risultato*/
 
+/*mancano questi due punti Creare un oggeto dello stesso tipo inserito nell'HashSet e popolarlo Scorrere il set,
+per ogni elemento verificare se è uguale all'oggetto creato ed eliminarlo
+ */
+
 import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
-        HashSet<MyObject> hashSet = riempimentoHashSet();
+        HashSet<MyObject> collezione = riempimentoHashSet();
 
         MyObject oggetto = new MyObject();
         oggetto.setName("Example");
         oggetto.setValue(10);
 
-        hashSet.remove(oggetto);
+     //   hashSet.remove(oggetto);
 
+        for(MyObject element: collezione) {
+            if(element == oggetto)
+                collezione.remove(element);
+        }
         // Verifichiamo e stampiamo l'HashSet
-        System.out.println("HashSet vuoto? " + hashSet.isEmpty());  // Dovrebbe stampare "true"
+        System.out.println("HashSet vuoto? " + collezione.isEmpty());  // Dovrebbe stampare "true"
     }
 
     // Funzione per riempire l'HashSet con oggetti di tipo MyObject
@@ -39,6 +47,13 @@ public class Main {
         oggetto3.setValue(12);
         hashSet.add(oggetto3);
 
+        // ora  creo un oggetto dello stesso tipo "Example" :
+        MyObject oggetto4 = new MyObject();
+        oggetto4.setName("Example");
+        oggetto4.setValue(10);
         return hashSet;
+
+
+
     }
 }
